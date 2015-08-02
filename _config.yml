@@ -67,4 +67,6 @@ theme: next
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type:git
+  repo:git@github.com:roderickwang/Blossom.git
+  branch:master

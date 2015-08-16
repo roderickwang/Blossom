@@ -4,9 +4,9 @@
 
 # Site
 title: Blossom 
-subtitle: roderickwang's blog
+subtitle: 前端框架文档
 description:
-author: Roderick Wang
+author: 交易后台前端组
 language: zh-CN
 timezone:
 
@@ -62,7 +62,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: next
+theme: yilia
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html

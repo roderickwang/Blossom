@@ -15,6 +15,8 @@ tags:
    基于react实现的bootstrap样式组件库
 *   [react material-ui demo地址](http://material-ui.com/#/components/appbar)
    基于react实现的material-design组件库
+*   [Immutable 不可变数据类型，可用于函数式编程，快速copy提高react性能](https://facebook.github.io/immutable-js/docs/)
+   基于react实现的material-design组件库
 *   [webpack文档](http://webpack.github.io/docs/)
    打包工具
 *   [gulp文档](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)

@@ -13,7 +13,7 @@ import linkedStateMixin fro">
 <meta property="og:site_name" content="Blossom">
 <meta property="og:description" content="阿波罗PC开发1. 双向绑定首先在需要双向绑定的类上面设置注解@linkedStateMixin。然后在构造函数内用this.setBiding(‘users’)设置绑定的store(redux1.0后改名为reducer)对象，此对象需要在this.props中存在，同时要求this.props中存在dispatch对象（redux产生的）
 import linkedStateMixin fro">
-<meta property="og:updated_time" content="2015-09-01T09:50:09.000Z">
+<meta property="og:updated_time" content="2015-09-01T10:43:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿波罗PC自开发内容">
 <meta name="twitter:description" content="阿波罗PC开发1. 双向绑定首先在需要双向绑定的类上面设置注解@linkedStateMixin。然后在构造函数内用this.setBiding(‘users’)设置绑定的store(redux1.0后改名为reducer)对象，此对象需要在this.props中存在，同时要求this.props中存在dispatch对象（redux产生的）
@@ -235,7 +235,7 @@ import linkedStateMixin fro">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="阿波罗PC开发">阿波罗PC开发</h1><h1 id="1-_双向绑定">1. 双向绑定</h1><p>首先在需要双向绑定的类上面设置注解@linkedStateMixin。<br>然后在构造函数内用this.setBiding(‘users’)设置绑定的store(redux1.0后改名为reducer)对象，此对象需要在this.props中存在，同时要求<br>this.props中存在dispatch对象（redux产生的）</p>
+        <h1 id="阿波罗PC开发">阿波罗PC开发</h1><h1 id="1-_双向绑定">1. 双向绑定</h1><p>首先在需要双向绑定的类上面设置注解@linkedStateMixin。然后在构造函数内用this.setBiding(‘users’)设置绑定的store(redux1.0后改名为reducer)对象，此对象需要在this.props中存在，同时要求this.props中存在dispatch对象（redux产生的）</p>
 <pre><code><span class="keyword">import</span> linkedStateMixin from '../decorators/<span class="type">LinkedStateMixin</span>.js'
 
 <span class="annotation">@linkedStateMixin</span>
@@ -254,7 +254,7 @@ export <span class="keyword">default</span> <span class="class"><span class="key
              );
     }
 }
-</code></pre><p>在store(redux1.0后改名为reducer)创建的时候，需要用bindingStore方法创建。<br>sotore中的初始对象如果需要绑定，需要先声明好，比如你要绑定下面store中的showUser.name这个属性，那么store中showUser必须要默认声明好showUser:{}。</p>
+</code></pre><p>在store(redux1.0后改名为reducer)创建的时候，需要用bindingStore方法创建。sotore中的初始对象如果需要绑定，需要先声明好，比如你要绑定下面store中的showUser.name这个属性，那么store中showUser必须要默认声明好showUser:{}。</p>
 <pre><code><span class="keyword">import</span> {UserTypes,MainTypes} <span class="keyword">from</span> <span class="string">'../constants/ActionTypes'</span>
 <span class="keyword">import</span> bindingStore <span class="keyword">from</span> <span class="string">'../lib/bindingStore'</span>
 <span class="keyword">import</span> <span class="keyword">Immutable</span> <span class="keyword">from</span> <span class="string">'immutable'</span>
@@ -275,7 +275,7 @@ export <span class="keyword">default</span> bindingStore(<span class="string">'u
         <span class="keyword">return</span> data.merge(<span class="keyword">Immutable</span>.fromJS(action.data));
     }
 })
-</code></pre><h1 id="2-_全局styles">2. 全局styles</h1><p>react的css设置推崇inline-style,就是所有的组件或者dom对象的css直接设置在style={{}}里，这样做的好处是可以利用js的逻辑能力，<br>变化css,并且对组件的封装性加强。我们用publicStyle这个注解做全局的公用inline-style,用法如下。其中this.mergeStyle是publicStyle注进来的方法，<br>其参数为更重要级的style，比如参数中有input对象，优先级比publicStyles里面的高，全局的inline-style写到publicStyle里面，如下面第二段代码。</p>
+</code></pre><h1 id="2-_全局styles">2. 全局styles</h1><p>react的css设置推崇inline-style,就是所有的组件或者dom对象的css直接设置在style={{}}里。这样做的好处是可以利用js的逻辑能力，变化css,并且对组件的封装性加强。我们用publicStyle这个注解做全局的公用inline-style,用法如下。其中this.mergeStyle是publicStyle注进来的方法，其参数为更重要级的style，比如参数中有input对象，优先级比publicStyles里面的高，全局的inline-style写到publicStyle里面，如下面第二段代码。</p>
 <pre><code><span class="annotation">@publicStyle</span>
 <span class="annotation">@linkedStateMixin</span>
 export <span class="keyword">default</span>
@@ -332,6 +332,75 @@ export <span class="keyword">default</span>
         return styles;
     }
 }
+</code></pre><h1 id="3-_自定义弹出框，普通弹出框的用法">3. 自定义弹出框，普通弹出框的用法</h1><h2 id="1-_自定义弹出框">1. 自定义弹出框</h2><p>首先在constants里面的ModalTypes里面添加一个枚举：</p>
+<pre><code><span class="literal">export</span> <span class="keyword">const</span> ModalTypes= {
+
+    ERROR_INFO:<span class="string">'ERROR_INFO'</span>,
+    DIALOG_EXAMPLE:<span class="string">'DIALOG_EXAMPLE'</span>
+}
+</code></pre><p>修改components下面的ModalRouter组件，添加刚才枚举所对应的组件。<br>自定义组件：</p>
+<pre><code><span class="keyword">import</span> <span class="type">React</span>, { <span class="type">Component</span>, <span class="type">PropTypes</span> } from <span class="symbol">'reac</span>t';
+<span class="keyword">import</span> {<span class="type">Button</span>,<span class="type">Input</span>,<span class="type">Grid</span>,<span class="type">Row</span>,<span class="type">Col</span>,<span class="type">Modal</span>} from <span class="symbol">'react</span>-bootstrap';
+<span class="keyword">import</span> <span class="type">PublicStyles</span> from '../decorators/<span class="type">PublicStyles</span>'
+
+<span class="annotation">@PublicStyles</span>
+export <span class="keyword">default</span>
+<span class="class"><span class="keyword">class</span> <span class="title">DialogExample</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">Component</span> {</span>
+
+    static proTypes = {
+
+    };
+
+    render() {
+        let styles = <span class="keyword">this</span>.mergeStyle();
+        <span class="keyword">return</span> (
+            &lt;div&gt;
+                &lt;<span class="type">Modal</span>.<span class="type">Header</span> closeButton onHide={<span class="keyword">this</span>.props.onClose}&gt;
+                    &lt;<span class="type">Modal</span>.<span class="type">Title</span>&gt;
+                      title
+                    &lt;/<span class="type">Modal</span>.<span class="type">Title</span>&gt;
+
+                &lt;/<span class="type">Modal</span>.<span class="type">Header</span>&gt;
+                &lt;<span class="type">Modal</span>.<span class="type">Body</span>&gt;
+                   sadfsadf
+                &lt;/<span class="type">Modal</span>.<span class="type">Body</span>&gt;
+                &lt;<span class="type">Modal</span>.<span class="type">Footer</span>&gt;
+                    &lt;<span class="type">Button</span>&gt;test1&lt;/<span class="type">Button</span>&gt;
+                &lt;/<span class="type">Modal</span>.<span class="type">Footer</span>&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+</code></pre><p>修改ModalRouter.js:</p>
+<pre><code>renderModal() {
+        <span class="keyword">const</span> {modalType} = <span class="keyword">this</span>.props;
+        <span class="keyword">switch</span> (modalType) {
+            <span class="keyword">case</span> ModalTypes.ERROR_INFO:
+                <span class="keyword">return</span> (
+                    &lt;ErrorInfo onClose={<span class="keyword">this</span>.props.close} {...<span class="keyword">this</span>.props}/&gt;
+                );
+            <span class="keyword">case</span> ModalTypes.ADJUSTMENT_INSERT:
+                <span class="keyword">return</span> (
+                    &lt;AdjustmentInsert onClose={<span class="keyword">this</span>.props.close} {...<span class="keyword">this</span>.props} /&gt;
+                )
+            <span class="keyword">case</span> ModalTypes.DIALOG_EXAMPLE:
+                <span class="keyword">return</span> (
+                    &lt;DialogExample onClose={<span class="keyword">this</span>.props.close} {...<span class="keyword">this</span>.props} /&gt;
+                )
+
+            <span class="keyword">default</span> :
+                <span class="keyword">return</span>;
+        }
+    }
+</code></pre><p>调用自定义弹框：</p>
+<pre><code><span class="keyword">import</span> * as MainActions from <span class="string">'../actions/MainActions.js'</span>
+<span class="comment">//构造函数</span>
+<span class="constructor"><span class="keyword">constructor</span>(props) </span>{
+        <span class="keyword">super</span>(props);
+        <span class="keyword">this</span>.actions = bindActionCreators(MainActions, props.dispatch);
+    }
+<span class="comment">//调用语句</span>
+<span class="keyword">this</span>.actions.showAlert({modalType:ModalTypes.DIALOG_EXAMPLE});
 </code></pre>
       
     </div>

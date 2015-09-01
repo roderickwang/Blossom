@@ -443,6 +443,30 @@ export <span class="keyword">default</span>
     }
 <span class="comment">//调用语句</span>
 <span class="keyword">this</span>.actions.showAlert({modalType:ModalTypes.DIALOG_EXAMPLE});
+</code></pre><p>如果是想用预制的普通文字弹出框直接调用：</p>
+<pre><code><span class="tag">this</span><span class="class">.actions</span><span class="class">.showAlert</span>(<span class="rules">{
+        <span class="rule"><span class="attribute">modalType</span>:<span class="value">ModalTypes.ERROR_INFO,
+        title: <span class="string">'titleTest'</span>,
+        info: <span class="string">'contentTest'</span>,
+        buttonFunc:[
+            {
+                event: function (target) {
+                    target.props.<span class="function">drawbackScheme</span>(target.props.scheme, btn)</span></span>;
+                }</span>,
+                <span class="rule"><span class="attribute">text</span>:<span class="value"> <span class="string">"确认"</span>,
+                style: <span class="string">"danger"</span>
+
+            },
+            {
+                event: function (target) {
+                    target.props.<span class="function">closeAlert</span>()
+                },
+                text: <span class="string">"取消"</span>,
+                style: <span class="string">"warning"</span>
+
+            }
+        ]
+    })</span></span>;
 </code></pre>
       
     </div>

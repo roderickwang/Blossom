@@ -6,18 +6,21 @@
   <title>常见坑集合 | Blossom</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1.Grid布局的fluid属性如果Grid不是最顶层，需要和父组件的宽度适应的时候，要在Grid的属性上设置fluid={true}才能保证想要的适应宽度。
-&amp;lt;Grid fluid={true} /&amp;gt;">
+&amp;lt;Grid fluid={true} /&amp;gt;
+2.关于reducer的清理值可以用双向绑定另外一个方法：this.manualChange(path,value)来做清空">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常见坑集合">
 <meta property="og:url" content="http://blossom.cf/2015/09/01/standard-1/index.html">
 <meta property="og:site_name" content="Blossom">
 <meta property="og:description" content="1.Grid布局的fluid属性如果Grid不是最顶层，需要和父组件的宽度适应的时候，要在Grid的属性上设置fluid={true}才能保证想要的适应宽度。
-&amp;lt;Grid fluid={true} /&amp;gt;">
-<meta property="og:updated_time" content="2015-09-07T03:52:25.000Z">
+&amp;lt;Grid fluid={true} /&amp;gt;
+2.关于reducer的清理值可以用双向绑定另外一个方法：this.manualChange(path,value)来做清空">
+<meta property="og:updated_time" content="2015-09-07T03:58:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常见坑集合">
 <meta name="twitter:description" content="1.Grid布局的fluid属性如果Grid不是最顶层，需要和父组件的宽度适应的时候，要在Grid的属性上设置fluid={true}才能保证想要的适应宽度。
-&amp;lt;Grid fluid={true} /&amp;gt;">
+&amp;lt;Grid fluid={true} /&amp;gt;
+2.关于reducer的清理值可以用双向绑定另外一个方法：this.manualChange(path,value)来做清空">
   
     <link rel="alternative" href="/atom.xml" title="Blossom" type="application/atom+xml">
   
@@ -212,7 +215,8 @@
       
         <h1 id="1-Grid布局的fluid属性">1.Grid布局的fluid属性</h1><p>如果Grid不是最顶层，需要和父组件的宽度适应的时候，要在Grid的属性上设置fluid={true}才能保证想要的适应宽度。</p>
 <pre><code><span class="tag">&lt;<span class="title">Grid</span> <span class="attribute">fluid</span>=<span class="value">{true}</span> /&gt;</span>
-</code></pre>
+</code></pre><h1 id="2-关于reducer的清理值">2.关于reducer的清理值</h1><p>可以用双向绑定另外一个方法：this.manualChange(path,value)来做清空</p>
+
       
     </div>
     

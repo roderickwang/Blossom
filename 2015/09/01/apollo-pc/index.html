@@ -13,7 +13,7 @@ import linkedStateMixin fro">
 <meta property="og:site_name" content="Blossom">
 <meta property="og:description" content="阿波罗PC开发1. 双向绑定首先在需要双向绑定的类上面设置注解@linkedStateMixin。然后在构造函数内用this.setBiding(‘users’)设置绑定的store(redux1.0后改名为reducer)对象，此对象需要在this.props中存在，同时要求this.props中存在dispatch对象（redux产生的）
 import linkedStateMixin fro">
-<meta property="og:updated_time" content="2015-09-01T10:47:56.000Z">
+<meta property="og:updated_time" content="2015-09-07T02:38:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿波罗PC自开发内容">
 <meta name="twitter:description" content="阿波罗PC开发1. 双向绑定首先在需要双向绑定的类上面设置注解@linkedStateMixin。然后在构造函数内用this.setBiding(‘users’)设置绑定的store(redux1.0后改名为reducer)对象，此对象需要在this.props中存在，同时要求this.props中存在dispatch对象（redux产生的）
@@ -229,7 +229,7 @@ export <span class="keyword">default</span> <span class="class"><span class="key
              );
     }
 }
-</code></pre><p>在store(redux1.0后改名为reducer)创建的时候，需要用bindingStore方法创建。sotore中的初始对象如果需要绑定，需要先声明好，比如你要绑定下面store中的showUser.name这个属性，那么store中showUser必须要默认声明好showUser:{}。</p>
+</code></pre><p>在store(redux1.0后改名为reducer)创建的时候，需要用bindingStore方法创建。sotore中的初始对象如果需要绑定，需要先声明好，比如你要绑定下面store中的showUser.name这个属性，那么store中showUser必须要默认声明好showUser:{}，然后valueLink={this.binding(“showUser,name”)}</p>
 <pre><code><span class="keyword">import</span> {UserTypes,MainTypes} <span class="keyword">from</span> <span class="string">'../constants/ActionTypes'</span>
 <span class="keyword">import</span> bindingStore <span class="keyword">from</span> <span class="string">'../lib/bindingStore'</span>
 <span class="keyword">import</span> <span class="keyword">Immutable</span> <span class="keyword">from</span> <span class="string">'immutable'</span>

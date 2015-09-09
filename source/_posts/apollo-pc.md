@@ -30,7 +30,7 @@ tags:
                  );
         }
     }
-在store(redux1.0后改名为reducer)创建的时候，需要用bindingStore方法创建。sotore中的初始对象如果需要绑定，需要先声明好，比如你要绑定下面store中的showUser.name这个属性，那么store中showUser必须要默认声明好showUser:{}。
+在store(redux1.0后改名为reducer)创建的时候，需要用bindingStore方法创建。sotore中的初始对象如果需要绑定，需要先声明好，比如你要绑定下面store中的showUser.name这个属性，那么store中showUser必须要默认声明好showUser:{}，然后valueLink={this.binding("showUser,name")}
 
     import {UserTypes,MainTypes} from '../constants/ActionTypes'
     import bindingStore from '../lib/bindingStore'

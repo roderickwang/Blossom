@@ -48,7 +48,7 @@ tagcloud: true
 #不开启——
 #friends: false
 #开启——
-friends:false
+friends: false
 
 #是否开启“关于我”。
 #不开启——

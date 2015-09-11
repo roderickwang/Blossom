@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>新app开发流程梳理 | Blossom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="app开发流程1.  项目在哪？App项目统一存放于app-trade-f2e组中；更早之前的一些项目建在了apollo-static组中。
+2.  项目创建新项目环境统一由前端组接口人搭建，各团队只需将项目名称发给前端组接口人，接口人将按照规范创建一个初始化项目。
+3.  环境确保本地已经安装了nodejs、cortex和anywhere；
+
+前往nodejs官网下载安装nodejs；
+推荐安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新app开发流程梳理">
+<meta property="og:url" content="http://blossom.cf/2015/09/09/app-new-project/index.html">
+<meta property="og:site_name" content="Blossom">
+<meta property="og:description" content="app开发流程1.  项目在哪？App项目统一存放于app-trade-f2e组中；更早之前的一些项目建在了apollo-static组中。
+2.  项目创建新项目环境统一由前端组接口人搭建，各团队只需将项目名称发给前端组接口人，接口人将按照规范创建一个初始化项目。
+3.  环境确保本地已经安装了nodejs、cortex和anywhere；
+
+前往nodejs官网下载安装nodejs；
+推荐安装">
+<meta property="og:updated_time" content="2015-09-11T01:53:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="新app开发流程梳理">
+<meta name="twitter:description" content="app开发流程1.  项目在哪？App项目统一存放于app-trade-f2e组中；更早之前的一些项目建在了apollo-static组中。
+2.  项目创建新项目环境统一由前端组接口人搭建，各团队只需将项目名称发给前端组接口人，接口人将按照规范创建一个初始化项目。
+3.  环境确保本地已经安装了nodejs、cortex和anywhere；
+
+前往nodejs官网下载安装nodejs；
+推荐安装">
+  
+    <link rel="alternative" href="/atom.xml" title="Blossom" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://avatars0.githubusercontent.com/u/1539555?v=3&amp;s=200" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">交易后台前端组</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">前端框架文档</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/工作/" style="font-size: 10px;">工作</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">大众点评-交易后台-前端组</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">交易后台前端组</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://avatars0.githubusercontent.com/u/1539555?v=3&amp;s=200" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">交易后台前端组</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">前端框架文档</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-app-new-project" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/09/app-new-project/" class="article-date">
+  	<time datetime="2015-09-09T07:48:12.000Z" itemprop="datePublished">2015-09-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      新app开发流程梳理
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作/">工作</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="app开发流程">app开发流程</h1><h1 id="1-_项目在哪？">1.  项目在哪？</h1><p>App项目统一存放于<a href="http://code.dianpingoa.com/groups/app-trade-f2e" target="_blank" rel="external">app-trade-f2e</a>组中；<br>更早之前的一些项目建在了<a href="http://code.dianpingoa.com/groups/apollo-static" target="_blank" rel="external">apollo-static</a>组中。</p>
+<h1 id="2-_项目创建">2.  项目创建</h1><p>新项目环境统一由前端组接口人搭建，各团队只需将项目名称发给前端组接口人，接口人将按照规范创建一个初始化项目。</p>
+<h1 id="3-_环境">3.  环境</h1><p>确保本地已经安装了<a href="http://www.nodejs.org/" target="_blank" rel="external">nodejs</a>、cortex和anywhere；</p>
+<ul>
+<li>前往nodejs官网下载安装nodejs；</li>
+<li>推荐安装淘宝镜像:npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a> ；</li>
+<li>执行cnpm install cortex -g 安装全局cortex项目构建工具；cortex文档请猛戳此链接：<em><a href="http://book.ctx.io/zh-cn/index.html" target="_blank" rel="external">http://book.ctx.io/zh-cn/index.html</a></em>;</li>
+<li>执行cnpm install anywhere -g安装静态服务器，优点是进入任何目录执行anywhere都会以当前目录为主目录启动服务；</li>
+</ul>
+<h1 id="4-_依赖">4.  依赖</h1><p>进入项目所在目录执行命令安装项目依赖；</p>
+<ul>
+<li>cnpm install ;</li>
+<li>cortex install;</li>
+</ul>
+<p><em>注：</em>可直接执行项目中的install.sh完成除nodejs之外的所有安装；  sh install.sh</p>
+<h1 id="5-_本地调试">5.  本地调试</h1><ul>
+<li>cortex build编译代码；</li>
+<li>执行anywhere启动服务；</li>
+<li>打开浏览器输入页面地址预览，在url上加上mock=1启动mock本地调试；</li>
+<li>模拟器调试需先将native代码checkout至本地编译后在调试工具（类似一个小蜘蛛的图标，在正上方中间位置）中找到”打开url”，输入要调试的页面进行查看；<br>url中的格式为2种：dpapp: dpcrm://web?url=encode(你的url)；efte：dpcrm://efte?unit=&amp;path=&amp;query={}；请一定要掌握正确的打开姿势。<br>native项目地址为：<ol>
+<li>ios：<a href="http://code.dianpingoa.com/crm/crm-apollo-iphone" target="_blank" rel="external">http://code.dianpingoa.com/crm/crm-apollo-iphone</a>;</li>
+<li>android：<a href="http://code.dianpingoa.com/crm/crm-apollo-android" target="_blank" rel="external">http://code.dianpingoa.com/crm/crm-apollo-android</a>;</li>
+</ol>
+</li>
+</ul>
+<h1 id="6-_目录结构">6.  目录结构</h1><blockquote>
+<p>html_entries                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>html文件存放目录，目录中按模块继续划分子目录</em><br>&nbsp;&nbsp;&nbsp;&nbsp;moduleName  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>子模块目录</em><br>&nbsp;&nbsp;&nbsp;&nbsp;…<br>js_entries                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>此目录存放编译打包后的js，提供给cortex使用</em><br>src                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>存放js源文件</em><br>&nbsp;&nbsp;&nbsp;&nbsp;actions     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>存放页面交互的动作;</em><br>&nbsp;&nbsp;&nbsp;&nbsp;components  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>组件</em><br>&nbsp;&nbsp;&nbsp;&nbsp;constants   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>常量</em><br>&nbsp;&nbsp;&nbsp;&nbsp;containers  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>容器</em><br>&nbsp;&nbsp;&nbsp;&nbsp;entries     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>主入口，模块划分</em><br>&nbsp;&nbsp;&nbsp;&nbsp;reducers    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>store数据分发</em><br>&nbsp;&nbsp;&nbsp;&nbsp;utils       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>工具集合</em><br>mocks                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>模拟服务端数据</em><br>less                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>css样式存放目录，里面按照模块划分</em><br>&nbsp;&nbsp;&nbsp;&nbsp;moduleName<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.less<br>&nbsp;&nbsp;&nbsp;&nbsp;…<br>img  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>图片存放目录，里面按照模块划分</em></p>
+</blockquote>
+<h1 id="7-_开发模式和文档">7.  开发模式和文档</h1><p>采用redux+react+es6+dpapp的模式开发；可参照项目有<a href="http://code.dianpingoa.com/app-trade-f2e/apollo-rotate-static" target="_blank" rel="external">apollo-rotate-static</a>；资料请参照：<br>redux：<a href="http://camsong.github.io/redux-in-chinese/index.html" target="_blank" rel="external">http://camsong.github.io/redux-in-chinese/index.html</a>;<br>react：<a href="http://reactjs.cn/react/docs/getting-started.html" target="_blank" rel="external">http://reactjs.cn/react/docs/getting-started.html</a>;<br>es6：<a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">http://es6.ruanyifeng.com/</a>;<br>dpapp：<a href="http://efte.github.io/dpapp/#概述" target="_blank" rel="external">http://efte.github.io/dpapp/#概述</a>;</p>
+<p><em>注：</em>以上提供的均为中文资料。</p>
+<h1 id="8-_数据交互">8.  数据交互</h1><p>新建项目中，utils包内会包含一个名叫fetch.js的文件，actions中的js调用此文件中的fetch方法动态获取数据，数据来源分为两种，一种是mock数据，从本地mocks文件夹中获取；另一种是通过jsbrige的方式从服务端上获取。具体调用方式如下：</p>
+<pre><code><span class="keyword">import</span> fetch <span class="keyword">from</span> <span class="string">'../utils/fetch'</span>;
+<span class="keyword">import</span> querystring <span class="keyword">from</span> <span class="string">'querystring'</span>;
+
+<span class="keyword">export</span> <span class="keyword">const</span> FETCH_MESSAGE_DETAIL = <span class="string">'FETCH_MESSAGE_DETAIL'</span>;
+
+<span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">fetchMessageDetail</span>(<span class="params">params</span>) </span>{
+    <span class="keyword">return</span> <span class="keyword">async</span> (dispatch) =&gt; {
+        <span class="keyword">try</span> {
+            <span class="keyword">let</span> data = <span class="keyword">await</span> fetch(<span class="string">'/message-center/detail?'</span> + querystring.stringify(params));
+            dispatch({
+                type: FETCH_MESSAGE_DETAIL,
+                data: data
+            })
+        } <span class="keyword">catch</span> (ex) {
+            <span class="built_in">console</span>.dir(ex);
+        }
+    }
+}
+</code></pre><h1 id="9-_公共样式库">9. 公共样式库</h1><p>目前移动端没有一个定制性自己的样式库和组件库；<br>不过可以暂时用开源的，比如<a href="http://amazeui.org/react/getting-started" target="_blank" rel="external">amazeui for react</a>;</p>
+<h1 id="10-_其他注意事项">10.  其他注意事项</h1><p>移动端并非像pc端有用强大的硬件环境，所以在开发时，逻辑处理、文件大小、请求量尽量精简，不易复杂化；</p>
+<p>一定一定要遵守开发规范。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/3015/08/02/index/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          索引
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/09/apollo-pc-index/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">阿波罗PC开发资源</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="app-new-project" data-title="新app开发流程梳理" data-url="http://blossom.cf/2015/09/09/app-new-project/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 交易后台前端组
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -205,7 +205,7 @@
 </ol>
 <ul>
 <li><a href="2015/09/09/apollo-pc-index/">阿波罗PC相关</a></li>
-<li><a href="/2015/09/08/app/">阿波罗APP相关</a></li>
+<li><a href="2015/09/09/app-new-project/">阿波罗APP相关</a></li>
 </ul>
 
       
@@ -214,6 +214,112 @@
     <div class="article-info article-info-index">
       
       
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-app-new-project" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/09/app-new-project/" class="article-date">
+  	<time datetime="2015-09-09T07:48:12.000Z" itemprop="datePublished">2015-09-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/09/app-new-project/">新app开发流程梳理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="app开发流程">app开发流程</h1><h1 id="1-_项目在哪？">1.  项目在哪？</h1><p>App项目统一存放于<a href="http://code.dianpingoa.com/groups/app-trade-f2e" target="_blank" rel="external">app-trade-f2e</a>组中；<br>更早之前的一些项目建在了<a href="http://code.dianpingoa.com/groups/apollo-static" target="_blank" rel="external">apollo-static</a>组中。</p>
+<h1 id="2-_项目创建">2.  项目创建</h1><p>新项目环境统一由前端组接口人搭建，各团队只需将项目名称发给前端组接口人，接口人将按照规范创建一个初始化项目。</p>
+<h1 id="3-_环境">3.  环境</h1><p>确保本地已经安装了<a href="http://www.nodejs.org/" target="_blank" rel="external">nodejs</a>、cortex和anywhere；</p>
+<ul>
+<li>前往nodejs官网下载安装nodejs；</li>
+<li>推荐安装淘宝镜像:npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a> ；</li>
+<li>执行cnpm install cortex -g 安装全局cortex项目构建工具；cortex文档请猛戳此链接：<em><a href="http://book.ctx.io/zh-cn/index.html" target="_blank" rel="external">http://book.ctx.io/zh-cn/index.html</a></em>;</li>
+<li>执行cnpm install anywhere -g安装静态服务器，优点是进入任何目录执行anywhere都会以当前目录为主目录启动服务；</li>
+</ul>
+<h1 id="4-_依赖">4.  依赖</h1><p>进入项目所在目录执行命令安装项目依赖；</p>
+<ul>
+<li>cnpm install ;</li>
+<li>cortex install;</li>
+</ul>
+<p><em>注：</em>可直接执行项目中的install.sh完成除nodejs之外的所有安装；  sh install.sh</p>
+<h1 id="5-_本地调试">5.  本地调试</h1><ul>
+<li>cortex build编译代码；</li>
+<li>执行anywhere启动服务；</li>
+<li>打开浏览器输入页面地址预览，在url上加上mock=1启动mock本地调试；</li>
+<li>模拟器调试需先将native代码checkout至本地编译后在调试工具（类似一个小蜘蛛的图标，在正上方中间位置）中找到”打开url”，输入要调试的页面进行查看；<br>url中的格式为2种：dpapp: dpcrm://web?url=encode(你的url)；efte：dpcrm://efte?unit=&amp;path=&amp;query={}；请一定要掌握正确的打开姿势。<br>native项目地址为：<ol>
+<li>ios：<a href="http://code.dianpingoa.com/crm/crm-apollo-iphone" target="_blank" rel="external">http://code.dianpingoa.com/crm/crm-apollo-iphone</a>;</li>
+<li>android：<a href="http://code.dianpingoa.com/crm/crm-apollo-android" target="_blank" rel="external">http://code.dianpingoa.com/crm/crm-apollo-android</a>;</li>
+</ol>
+</li>
+</ul>
+<h1 id="6-_目录结构">6.  目录结构</h1><blockquote>
+<p>html_entries                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>html文件存放目录，目录中按模块继续划分子目录</em><br>&nbsp;&nbsp;&nbsp;&nbsp;moduleName  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>子模块目录</em><br>&nbsp;&nbsp;&nbsp;&nbsp;…<br>js_entries                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>此目录存放编译打包后的js，提供给cortex使用</em><br>src                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>存放js源文件</em><br>&nbsp;&nbsp;&nbsp;&nbsp;actions     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>存放页面交互的动作;</em><br>&nbsp;&nbsp;&nbsp;&nbsp;components  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>组件</em><br>&nbsp;&nbsp;&nbsp;&nbsp;constants   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>常量</em><br>&nbsp;&nbsp;&nbsp;&nbsp;containers  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>容器</em><br>&nbsp;&nbsp;&nbsp;&nbsp;entries     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>主入口，模块划分</em><br>&nbsp;&nbsp;&nbsp;&nbsp;reducers    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>store数据分发</em><br>&nbsp;&nbsp;&nbsp;&nbsp;utils       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>工具集合</em><br>mocks                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>模拟服务端数据</em><br>less                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>css样式存放目录，里面按照模块划分</em><br>&nbsp;&nbsp;&nbsp;&nbsp;moduleName<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.less<br>&nbsp;&nbsp;&nbsp;&nbsp;…<br>img  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>图片存放目录，里面按照模块划分</em></p>
+</blockquote>
+<h1 id="7-_开发模式和文档">7.  开发模式和文档</h1><p>采用redux+react+es6+dpapp的模式开发；可参照项目有<a href="http://code.dianpingoa.com/app-trade-f2e/apollo-rotate-static" target="_blank" rel="external">apollo-rotate-static</a>；资料请参照：<br>redux：<a href="http://camsong.github.io/redux-in-chinese/index.html" target="_blank" rel="external">http://camsong.github.io/redux-in-chinese/index.html</a>;<br>react：<a href="http://reactjs.cn/react/docs/getting-started.html" target="_blank" rel="external">http://reactjs.cn/react/docs/getting-started.html</a>;<br>es6：<a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">http://es6.ruanyifeng.com/</a>;<br>dpapp：<a href="http://efte.github.io/dpapp/#概述" target="_blank" rel="external">http://efte.github.io/dpapp/#概述</a>;</p>
+<p><em>注：</em>以上提供的均为中文资料。</p>
+<h1 id="8-_数据交互">8.  数据交互</h1><p>新建项目中，utils包内会包含一个名叫fetch.js的文件，actions中的js调用此文件中的fetch方法动态获取数据，数据来源分为两种，一种是mock数据，从本地mocks文件夹中获取；另一种是通过jsbrige的方式从服务端上获取。具体调用方式如下：</p>
+<pre><code><span class="keyword">import</span> fetch <span class="keyword">from</span> <span class="string">'../utils/fetch'</span>;
+<span class="keyword">import</span> querystring <span class="keyword">from</span> <span class="string">'querystring'</span>;
+
+<span class="keyword">export</span> <span class="keyword">const</span> FETCH_MESSAGE_DETAIL = <span class="string">'FETCH_MESSAGE_DETAIL'</span>;
+
+<span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">fetchMessageDetail</span>(<span class="params">params</span>) </span>{
+    <span class="keyword">return</span> <span class="keyword">async</span> (dispatch) =&gt; {
+        <span class="keyword">try</span> {
+            <span class="keyword">let</span> data = <span class="keyword">await</span> fetch(<span class="string">'/message-center/detail?'</span> + querystring.stringify(params));
+            dispatch({
+                type: FETCH_MESSAGE_DETAIL,
+                data: data
+            })
+        } <span class="keyword">catch</span> (ex) {
+            <span class="built_in">console</span>.dir(ex);
+        }
+    }
+}
+</code></pre><h1 id="9-_公共样式库">9. 公共样式库</h1><p>目前移动端没有一个定制性自己的样式库和组件库；<br>不过可以暂时用开源的，比如<a href="http://amazeui.org/react/getting-started" target="_blank" rel="external">amazeui for react</a>;</p>
+<h1 id="10-_其他注意事项">10.  其他注意事项</h1><p>移动端并非像pc端有用强大的硬件环境，所以在开发时，逻辑处理、文件大小、请求量尽量精简，不易复杂化；</p>
+<p>一定一定要遵守开发规范。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作/">工作</a></li></ul>
+	</div>
+
       
 
       
